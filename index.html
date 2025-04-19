@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text count</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <div>
+        <h1>Message counter </h1>
+        <textarea name="textarea" id="textbox" placeholder="Enter the text less than 200 characters"></textarea>
+        <p id="count"> 0 / 200 characters</p>
+        <p id="warning"></p>
+    </div>
+
+    <script>
+        var textbox = document.getElementById("textbox")
+        var count = document.getElementById("count")
+        var warning = document.getElementById("warning")
+
+        textbox.addEventListener("input", function () {
+
+            var charcount = textbox.value.length
+            if (charcount <= 200) {
+
+                count.textContent = +charcount + "/200 characters"
+
+            }
+            else {
+                 warning.textContent = "You have reached the character limit!!!"
+                 textbox.disabled = true;
+                
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
